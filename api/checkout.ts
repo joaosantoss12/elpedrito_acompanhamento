@@ -40,7 +40,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      payment_method_types: ["card", "mb_way", "multibanco", "klarna"],
+      payment_method_types: ["card", "mb_way"],
       billing_address_collection: "auto",
       line_items: [
         {
