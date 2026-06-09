@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
 import Success from './components/Success'
+import Admin from './components/Admin'
 
 function ScrollProgressBar() {
   const { scrollYProgress } = useScroll()
@@ -19,12 +20,13 @@ function ScrollProgressBar() {
   )
 }
 
-const isSuccessPage = window.location.pathname === '/sucesso' || window.location.pathname === '/sucesso/'
+const path = window.location.pathname.replace(/\/$/, '')
+const isSuccessPage = path === '/sucesso'
+const isAdminPage = path === '/admin'
 
 export default function App() {
-  if (isSuccessPage) {
-    return <Success />
-  }
+  if (isSuccessPage) return <Success />
+  if (isAdminPage) return <Admin />
 
   return (
     <>

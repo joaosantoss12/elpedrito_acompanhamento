@@ -103,7 +103,7 @@ export default function Success() {
 
         {/* Telegram CTA */}
         <motion.a
-          href="https://t.me/elpedritoren"
+          href={`https://t.me/elpedritoren?text=${encodeURIComponent("Pedrito, acabei de comprar o teu acompanhamento de 1 mês. Aqui está o meu comprovativo: [ANEXAR COMPROVATIVO DO EMAIL]")}`}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.9 }}
