@@ -4,7 +4,7 @@ import Stripe from "stripe";
 const PLANS: Record<string, { name: string; amount: number }> = {
   monthly: {
     name: "Pedrito Acompanhamento — 1 Mês",
-    amount: 100,//14900,
+    amount: 14900,
   },
   quarterly: {
     name: "Pedrito Acompanhamento — 3 Meses",
