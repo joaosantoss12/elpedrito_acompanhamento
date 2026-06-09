@@ -21,20 +21,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       status: "complete",
     });
 
-    const purchases = sessions.data.map((s) => ({
-      id: s.id,
-      email: s.customer_details?.email ?? "—",
-      plan: s.metadata?.planName ?? "—",
-      amount: s.amount_total != null ? `€${(s.amount_total / 100).toFixed(2)}` : "—",
-      paymentMethod: s.payment_method_types.join(", "),
-      date: new Date(s.created * 1000).toLocaleString("pt-PT", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    }));
+    const purchases = sessions.data
+      .filter((s) => s.metadata?.planName === "Pedrito Acompanhamento — 1 Mês")
+      .map((s) => ({
+        id: s.id,
+        email: s.customer_details?.email ?? "—",
+        plan: s.metadata?.planName ?? "—",
+        amount: s.amount_total != null ? `€${(s.amount_total / 100).toFixed(2)}` : "—",
+        paymentMethod: s.payment_method_types.join(", "),
+        date: new Date(s.created * 1000).toLocaleString("pt-PT", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      }));
 
     return res.json({ purchases });
   } catch (err) {
