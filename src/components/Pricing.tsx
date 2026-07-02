@@ -7,8 +7,8 @@ const plans = [
   {
     id: "monthly",
     name: "1 Mês",
-    price: "149",
-    originalPrice: "199",
+    price: "100",
+    originalPrice: "149",
     period: "pagamento único",
     description: "Acompanhamento completo durante 1 mês",
     features: [
@@ -237,11 +237,10 @@ export default function Pricing() {
                 </ul>
                 <button
                   onClick={() => openModal(plan.id)}
-                  className={`w-full py-4 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer ${
-                    plan.popular
+                  className={`w-full py-4 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer ${plan.popular
                       ? "bg-gradient-to-r from-gold to-gold-light text-black hover:opacity-90 shadow-lg shadow-gold/20"
                       : "bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20"
-                  }`}
+                    }`}
                 >
                   Aderir Agora
                   <ArrowRight className="w-4 h-4" />
